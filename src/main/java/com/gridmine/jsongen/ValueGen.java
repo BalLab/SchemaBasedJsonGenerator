@@ -93,8 +93,9 @@ public class ValueGen {
 		
 		RandomDataGenerator randomData = new RandomDataGenerator(); 
 		
-		Long max =  Long.parseLong(args[0], 10);
-		Long min =  Long.parseLong(args[1], 10);
+		Long min =  Long.parseLong(args[0], 10);
+		Long max =  Long.parseLong(args[1], 10);
+		
 		Long value;
 		
 		value = randomData.nextLong(min, max);
