@@ -2,6 +2,7 @@ package com.gridmine.jsongen;
 
 import java.util.Random;
 
+import org.apache.commons.math3.random.RandomDataGenerator;
 import org.fluttercode.datafactory.impl.DataFactory;
 
 import simplelatlng.LatLng;
@@ -23,6 +24,8 @@ public class ValueGen {
 			case "getLongitude" : return getLongitude();
 			case "getFromList": return getFromList(args);
 			case "getDouble": return getDouble(args);
+			case "getLong" : return getLong(args);
+			case "getTimestamp" : return getLong(args);
 
 		}
 
@@ -84,6 +87,20 @@ public class ValueGen {
 	public String getLatitude(){
 		return String.valueOf(LatLng.random().getLatitude());
 
+	}
+	
+	public String getLong(String[] args){
+		
+		RandomDataGenerator randomData = new RandomDataGenerator(); 
+		
+		Long max =  Long.parseLong(args[0], 10);
+		Long min =  Long.parseLong(args[1], 10);
+		Long value;
+		
+		value = randomData.nextLong(min, max);
+		
+		return value.toString();
+		
 	}
 
 	
